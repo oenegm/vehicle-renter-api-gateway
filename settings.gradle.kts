@@ -1,1 +1,1 @@
-rootProject.name = "vehicle-renter-api-gateway"
+rootProject.name = "api-gateway"
