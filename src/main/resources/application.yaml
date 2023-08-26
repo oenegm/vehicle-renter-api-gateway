@@ -12,7 +12,7 @@ logging:
         type.descriptor.sql.BasicBinder: TRACE
 
 server:
-  port: ${PROFILES_SERVICE_PORT}
+  port: ${SERVER_PORT}
 
 spring:
   main:
