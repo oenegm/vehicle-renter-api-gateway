@@ -27,19 +27,19 @@ spring:
     gateway:
       routes:
         - id: profiles-service
-          uri: ${PROFILES_SERVICE_URI}
+          uri: ${PROFILES_SERVICE_URL}
           predicates:
             - Path=/api/v1/profiles/**
         - id: rental-requests-service
-          uri: ${RENTAL_REQUEST_SERVICE_URI}
+          uri: ${RENTAL_REQUEST_SERVICE_URL}
           predicates:
             - Path=/api/v1/rental-requests/**
         - id: user-info-service
-          uri: ${USER_INFO_SERVICE_URI}
+          uri: ${USER_INFO_SERVICE_URL}
           predicates:
             - Path=/api/v1/users/**
             - Path=/api/v1/auth/**
         - id: vehicle-info-service
-          uri: ${VEHICLE_INFO_SERVICE_URI}
+          uri: ${VEHICLE_INFO_SERVICE_URL}
           predicates:
             - Path=/api/v1/vehicles/**
