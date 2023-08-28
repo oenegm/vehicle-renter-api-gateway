@@ -1,11 +1,11 @@
-package com.project.vehiclerenterapigateway
+package com.vehiclerenter.apigateway
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class VehicleRenterApiGatewayApplication
+class ApiGatewayApplication
 
 fun main(args: Array<String>) {
-    runApplication<VehicleRenterApiGatewayApplication>(*args)
+    runApplication<ApiGatewayApplication>(*args)
 }

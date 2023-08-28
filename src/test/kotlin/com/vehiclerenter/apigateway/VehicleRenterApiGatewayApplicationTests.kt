@@ -1,4 +1,4 @@
-package com.project.vehiclerenterapigateway
+package com.vehiclerenter.apigateway
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
