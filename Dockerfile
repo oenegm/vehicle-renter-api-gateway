@@ -1,8 +1,17 @@
-FROM openjdk:19-jdk-alpine
+# Stage 1: Build
+FROM gradle:jdk17-alpine AS build
+WORKDIR /app
 
-LABEL authors="Omar E. Negm, Mohammed H. Ramadan"
+# Copy only build files for dependency resolution
+COPY build.gradle.kts .
+COPY settings.gradle.kts .
+RUN gradle --no-daemon --parallel dependencies
 
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+# Copy the rest of the application code
+COPY . .
+RUN gradle --no-daemon --parallel bootJar
 
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+# Stage 2: Run
+FROM openjdk:17-jdk-alpine
+COPY --from=build /app/build/libs/*.jar /app.jar
+CMD ["java", "-XX:+UseParallelGC", "-jar", "/app.jar"]
